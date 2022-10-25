@@ -4,8 +4,7 @@
       <h1 class='title-container'>Espruino Tools</h1>
       <p class='subtext-container'>Get started quick by looking at the docs  <a id="documentation-link" href="https://documentation-xi-liard.vercel.app">here</a></p>
         <button v-if="!this.connected" v-on:click="this.connect()" class="esp-btn green">Connect</button>
-        <button v-if="this.connected" v-on:click="this.disconnect()" class='esp-btn red'>Disconnect</button>
-
+        <button v-else v-on:click="this.disconnect()" class='esp-btn red'>Disconnect</button>
       <div v-if="showNotificationPopup" class="connection-notification">
         <p>{{this.notificationData}}</p>
       </div>
