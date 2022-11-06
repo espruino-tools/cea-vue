@@ -8,6 +8,7 @@
         <div v-if="showNotificationPopup" class="connection-notification">
           <p>{{this.notificationData}}</p>
         </div>
+        <video id="remote-video"></video>
     </div>
   </template>
   
@@ -18,8 +19,14 @@
   const device = new DeviceController()
   const p = new Host()
 
+  p.getVideo(function(stream){
+    let video = document.getElementById("remote-video")
+    video.srcObject = stream;
+    video.play();
+  })
+
   p.getData(function(data){
-    console.log(data)
+    alert(data)
   })
   
   export default {
