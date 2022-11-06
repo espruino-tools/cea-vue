@@ -1,5 +1,6 @@
 <template>
     <h1>Peer Connector</h1>
+    <button v-on:click="sendData()"></button>
 </template>
   
   <script>
@@ -8,9 +9,15 @@
   let p = new Connector()
 
   p.connectData();
+  p.connectVideo();
 
   export default {
     name: 'Peer-page',
+    methods: {
+      sendData(){
+        p.conn.send("Data Works!!")
+      }
+    }
   }
   </script>
   
